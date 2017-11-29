@@ -19,6 +19,15 @@
   <body>
     <div id="container">
       <%= yield %>
+      <div id="cryptotag">
+        <h4>
+        If you find this useful, help fund development here:<br/>
+        BTC: 31qr3caxKmCXrMtf2aY6yxYKZQmreCqiaE<br/>
+        ETH: 0x75502D80d84F291A45F8124CEA3e742daBCcf00F<br/>
+        LTC: LRVFn6D2eeEEgasFrowCwAgTy2REbTEjS8<br/>
+
+      </h4>
+      </div>
     </div>
   
     <% if development? %>
@@ -28,5 +37,6 @@
       </div>
       <a href="#saving-instructions" id="save-gridster">Save this layout</a>
     <% end %>
+
   </body>
 </html>
