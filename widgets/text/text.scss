@@ -19,6 +19,7 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
 
   .more-info {
     color: $moreinfo-color;
+    font-size: 15px;
   }
 
   .updated-at {
@@ -27,6 +28,6 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
 
 
   &.large h3 {
-    font-size: 65px;
+    font-size: 55px;
   }
 }
