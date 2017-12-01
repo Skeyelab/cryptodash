@@ -23,4 +23,5 @@ Dashing.on 'ready', ->
       draggable:
         stop: Dashing.showGridsterInstructions
         start: -> Dashing.currentWidgetPositions = Dashing.getWidgetPositions()
-     
+        items: “none”
+     $(".gridster ul:first").gridster().data('gridster').disable()
