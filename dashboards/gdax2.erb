@@ -2,27 +2,42 @@
 $(function() {
   // These settings override the defaults set in application.coffee. You can do this on a per dashboard basis.
   //Dashing.widget_base_dimensions = [370, 340]
-  //Dashing.numColumns = 5
+  Dashing.numColumns = 12
 });
 </script>
+
+<style>
+h3   {color: blue;}
+
+</style>
 
 <% content_for :title do %>GDAX<% end %>
 <div class="gridster">
   <ul>
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
+    <li data-row="1" data-col="1" data-sizex="4" data-sizey="4">
       <div data-id="btcprice" data-view="Btcprice" data-btcprice="" data-prefix="$"></div>
     </li>
-    <li data-row="1" data-col="2" data-sizex="2" data-sizey="2">
+    <li data-row="1" data-col="2" data-sizex="4" data-sizey="4">
       <div data-id="ethprice" data-view="Ethprice" data-ethprice="" data-prefix="$"></div>
     </li>
-    <li data-row="1" data-col="3" data-sizex="2" data-sizey="2">
+    <li data-row="1" data-col="3" data-sizex="4" data-sizey="4">
       <div data-id="ltcprice" data-view="Ltcprice" data-ltcprice="" data-prefix="$"></div>
     </li>
-    <li data-row="2" data-col="1" data-sizex="2" data-sizey="1">
+
+         <li data-row="2" data-col="1" data-sizex="4" data-sizey="2">
+      <div data-view="Clock"></div>
+       </li>
+    <li data-row="2" data-col="2" data-sizex="4" data-sizey="2">
+      <div data-id="ethbtcprice" data-view="Ethbtcprice" data-ltcbtcprice="" data-prefix="Ƀ"></div>
+       </li>  
+    <li data-row="2" data-col="3" data-sizex="4" data-sizey="2">
+      <div data-id="ltcbtcprice" data-view="Ltcbtcprice" data-ltcbtcprice="" data-prefix="Ƀ"></div>
+       </li>
+<!--     <li data-row="2" data-col="1" data-sizex="4" data-sizey="2">
       <div data-view="Clock"></div>
     <li data-row="2" data-col="2" data-sizex="4" data-sizey="1">
       <div data-id="welcome" data-view="Text" data-title="Help fund development here:" data-text="BTC:31qr3caxKmCXrMtf2aY6yxYKZQmreCqiaE ETH:0x75502D80d84F291A45F8124CEA3e742daBCcf00F LTC:LRVFn6D2eeEEgasFrowCwAgTy2REbTEjS8" data-moreinfo=""></div>
-    </li>    </li>
+    </li>    </li> -->
 
   </ul>
 </div>
