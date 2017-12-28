@@ -26,7 +26,7 @@ SCHEDULER.every '5s', allow_overlapping: false do
   #puts btc_price
   send_event('ethprice', { value: eth_price.to_f} )
 end
-SCHEDULER.every '55s', allow_overlapping: false do
+SCHEDULER.every '5s', allow_overlapping: false do
   uri = URI.parse('https://api.gdax.com/products/LTC-USD/ticker')
   http = Net::HTTP.new(uri.host, uri.port)
   http.use_ssl = true
@@ -38,7 +38,7 @@ SCHEDULER.every '55s', allow_overlapping: false do
   #puts ltc_price
   send_event('ltcprice', { value: ltc_price.to_f} )
 end
-SCHEDULER.every '.5s', allow_overlapping: false do
+SCHEDULER.every '5s', allow_overlapping: false do
   uri = URI.parse('https://api.gdax.com/products/LTC-BTC/ticker')
   http = Net::HTTP.new(uri.host, uri.port)
   http.use_ssl = true
@@ -50,7 +50,7 @@ SCHEDULER.every '.5s', allow_overlapping: false do
   puts ltc_btc_price
   send_event('ltcbtcprice', { value: ltc_btc_price.to_f} )
 end
-SCHEDULER.every '.5s', allow_overlapping: false do
+SCHEDULER.every '5s', allow_overlapping: false do
   uri = URI.parse('https://api.gdax.com/products/ETH-BTC/ticker')
   http = Net::HTTP.new(uri.host, uri.port)
   http.use_ssl = true
