@@ -59,7 +59,7 @@ SCHEDULER.every '5s', allow_overlapping: false do
   json_response = JSON.parse(response.body)
   ltc_btc_price = (json_response['bid'].to_f + json_response['ask'].to_f)/2
   ltc_btc_price = '%.5f' % ltc_btc_price.to_f
-  puts ltc_btc_price
+  #puts ltc_btc_price
   send_event('ltcbtcprice', { value: ltc_btc_price.to_f} )
 end
 SCHEDULER.every '5s', allow_overlapping: false do
@@ -71,7 +71,7 @@ SCHEDULER.every '5s', allow_overlapping: false do
   json_response = JSON.parse(response.body)
   eth_btc_price = (json_response['bid'].to_f + json_response['ask'].to_f)/2
   eth_btc_price = '%.5f' % eth_btc_price.to_f
-  puts eth_btc_price
+  #puts eth_btc_price
   send_event('ethbtcprice', { value: eth_btc_price.to_f} )
 end
 SCHEDULER.every '5s', allow_overlapping: false do
@@ -83,6 +83,6 @@ SCHEDULER.every '5s', allow_overlapping: false do
   json_response = JSON.parse(response.body)
   bch_btc_price = (json_response['bid'].to_f + json_response['ask'].to_f)/2
   bch_btc_price = '%.5f' % bch_btc_price.to_f
-  puts bch_btc_price
+  #puts bch_btc_price
   send_event('bchbtcprice', { value: bch_btc_price.to_f} )
 end
