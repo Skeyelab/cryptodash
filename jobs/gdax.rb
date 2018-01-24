@@ -39,6 +39,18 @@ SCHEDULER.every '5s', allow_overlapping: false do
   send_event('ltcprice', { value: ltc_price.to_f} )
 end
 SCHEDULER.every '5s', allow_overlapping: false do
+  uri = URI.parse('https://api.gdax.com/products/BCH-USD/ticker')
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  request = Net::HTTP::Get.new(uri.request_uri)
+  response = http.request(request)
+  json_response = JSON.parse(response.body)
+  bch_price = (json_response['bid'].to_f + json_response['ask'].to_f)/2
+  bch_price = '%.2f' % bch_price.to_f
+  #puts ltc_price
+  send_event('bchprice', { value: bch_price.to_f} )
+end
+SCHEDULER.every '5s', allow_overlapping: false do
   uri = URI.parse('https://api.gdax.com/products/LTC-BTC/ticker')
   http = Net::HTTP.new(uri.host, uri.port)
   http.use_ssl = true
@@ -61,4 +73,16 @@ SCHEDULER.every '5s', allow_overlapping: false do
   eth_btc_price = '%.5f' % eth_btc_price.to_f
   puts eth_btc_price
   send_event('ethbtcprice', { value: eth_btc_price.to_f} )
+end
+SCHEDULER.every '5s', allow_overlapping: false do
+  uri = URI.parse('https://api.gdax.com/products/BCH-BTC/ticker')
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+  request = Net::HTTP::Get.new(uri.request_uri)
+  response = http.request(request)
+  json_response = JSON.parse(response.body)
+  bch_btc_price = (json_response['bid'].to_f + json_response['ask'].to_f)/2
+  bch_btc_price = '%.5f' % bch_btc_price.to_f
+  puts bch_btc_price
+  send_event('bchbtcprice', { value: bch_btc_price.to_f} )
 end
